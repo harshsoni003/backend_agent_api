@@ -94,7 +94,12 @@ security = HTTPBearer()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:8080",  # Local development
+        "http://localhost:3000",  # Alternative local development
+        "https://backend-agent-api-frontend.onrender.com",  # Production frontend
+        "*"  # Allow all origins for now - you can restrict this later
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
