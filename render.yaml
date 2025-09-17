@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: backend-agent-api
+    runtime: docker
+    plan: starter
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PORT
+        value: 8001
+    # Add your actual environment variables in the Render dashboard
+    # These are just placeholders - DO NOT put real secrets here
+    # - key: SUPABASE_URL
+    #   value: your_supabase_url_here
+    # - key: SUPABASE_ANON_KEY
+    #   value: your_supabase_anon_key_here
+    # - key: OPENAI_API_KEY
+    #   value: your_openai_api_key_here
+    # - key: ANTHROPIC_API_KEY
+    #   value: your_anthropic_api_key_here
+    # - key: BRAVE_API_KEY
+    #   value: your_brave_api_key_here
+    # - key: MEM0_API_KEY
+    #   value: your_mem0_api_key_here
